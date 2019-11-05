@@ -1,26 +1,32 @@
-import React from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+    state = {
+        selectedFile: null 
+     }
+
+    fileChangedHandler = (event) => {
+        const file = event.target.files[0]
+      }
+      
+      uploadHandler = () => {
+        console.log(this.state.selectedFile)
+      }
+    
+
+    render() {
+        return(
+            <div className="App">
+                <label for="image">
+                <input type="file" name="image" id="image"/>
+                 <img src="http://upload.wikimedia.org/wikipedia/commons/c/ca/Button-Lightblue.svg" width="30px"/>
+                </label>
+            </div>
+        );
+    }
 }
 
 export default App;
